@@ -66,4 +66,4 @@ You agree to indemnify and hold harmless the Bot's developers from any claim or 
 We reserve the right to modify, suspend, or discontinue the Bot's service at any time, with or without notice. We also reserve the right to modify these ToS at any time. Continued use of the Bot after any such changes shall constitute your consent to such changes.
 
 8. Contact
-If you have any questions about these Terms of Service, please contact the Bot's maintainer at [Your Discord Handle, Email, or Support Server Invite].
+If you have any questions about these Terms of Service, please contact the Bot's maintainer at [crazylosthismind#0].
