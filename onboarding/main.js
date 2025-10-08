@@ -58,7 +58,7 @@ window.onBoardingSettings = {
       {
         pageHTML(window.onBoardingSettings.pages[i]).then(pageContent => {
         if (!pageContent) return;
-        $('.onboarding').append('<div id="'+window.onBoardingSettings.pages[i]+'" style"position:absolute;z-index:'+ 210-i +';">'+pageContent+'<br><a class="'+ window.onBoardingSettings.pages[i] +' wds-button">Next</a>'+'</div>');
+        $('.onboarding').append('<div id="'+window.onBoardingSettings.pages[i]+'" style"position:absolute;z-index:'+ 225-i +';">'+pageContent+'<br><a class="'+ window.onBoardingSettings.pages[i] +' wds-button">Next</a>'+'</div>');
         $('.'+window.onBoardingSettings.pages[i]).click(function() {
             $('#'+window.onBoardingSettings.pages[i].remove();
           });
