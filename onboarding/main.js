@@ -59,7 +59,10 @@ window.onBoardingSettings = {
             if (!pageContent) return;
             $('.onboarding').append('<div id="' + window.onBoardingSettings.pages[i] + '" style="position:absolute;z-index:' + (225 - i) + ';">' + pageContent + '<br><a class="' + window.onBoardingSettings.pages[i] + ' wds-button">Next</a></div>');
             $('.' + window.onBoardingSettings.pages[i]).click(function() {
-              $('#' + window.onBoardingSettings.pages[i]).remove();
+              $('#' + window.onBoardingSettings.pages[i]).css({
+  'opacity': '0',
+  'pointer-events': 'none'
+});
             });
           });
         }
