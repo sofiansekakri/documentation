@@ -149,6 +149,11 @@ function readerwriter(type)
               overflow-y: scroll;
               overflow-x: hidden;
             }
+
+           [data-selected="yes"]
+           {
+            
+           }
           </style>
         `);
         window.onboardingloaded = true;
