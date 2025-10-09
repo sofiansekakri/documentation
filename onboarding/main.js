@@ -3,13 +3,12 @@ window.onBoardingSettings = {
   pages: [
     'MediaWiki:custom-writer',
     'MediaWiki:custom-reader'
-  ]
+  ],
   options: [
     {
       text: 'enable discussion page redirect',
       checkedDefault: true,
       enableFunction: redirect,
-
       id: 'redirect'
     },
     {
@@ -20,6 +19,7 @@ window.onBoardingSettings = {
     }
   ]
 };
+
 (function() {
   const username = mw.config.get('wgUserName');
   function page(title) {
@@ -54,16 +54,15 @@ window.onBoardingSettings = {
       pageHTML(mainPage + '/onboarding').then(pageContent => {
         if (!pageContent) return;
         $('.onboarding').append(pageContent);
-         for(let i = 0; i<window.onBoardingSettings.pages.length; i++)
-      {
-        pageHTML(window.onBoardingSettings.pages[i]).then(pageContent => {
-        if (!pageContent) return;
-        $('.onboarding').append('<div id="'+window.onBoardingSettings.pages[i]+'" style"position:absolute;z-index:'+ 225-i +';">'+pageContent+'<br><a class="'+ window.onBoardingSettings.pages[i] +' wds-button">Next</a>'+'</div>');
-        $('.'+window.onBoardingSettings.pages[i]).click(function() {
-            $('#'+window.onBoardingSettings.pages[i].remove();
+        for (let i = 0; i < window.onBoardingSettings.pages.length; i++) {
+          pageHTML(window.onBoardingSettings.pages[i]).then(pageContent => {
+            if (!pageContent) return;
+            $('.onboarding').append('<div id="' + window.onBoardingSettings.pages[i] + '" style="position:absolute;z-index:' + (225 - i) + ';">' + pageContent + '<br><a class="' + window.onBoardingSettings.pages[i] + ' wds-button">Next</a></div>');
+            $('.' + window.onBoardingSettings.pages[i]).click(function() {
+              $('#' + window.onBoardingSettings.pages[i]).remove();
+            });
           });
         }
-      }
         if (window.onBoardingSettings.options.length > 0) {
           $('.onboarding').append('<div class="options"><h2>Options</h2></div>');
           window.onBoardingSettings.options.forEach(opt => {
@@ -95,8 +94,8 @@ window.onBoardingSettings = {
             .onboarding {
               z-index: 201;
               position: sticky;
-              left:10px;
-              top:10px;
+              left: 10px;
+              top: 10px;
               width: 95vw;
               height: 95vh;
               max-height: 95vh;
