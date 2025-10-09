@@ -43,6 +43,24 @@ var readerWriterDOM = `
 </div>
 `;
 
+function readerwriter(type)
+{
+   if(type === 'writer')
+   {
+      $('.reader').attr('data-selected', 'no');
+      $('.writer').attr('data-selected', yes);
+   }
+   if(type === 'reader')
+   {
+      $('.writer').attr('data-selected', 'no');
+      $('.reader').attr('data-selected', 'yes');
+   }
+   let enabled = $('[data-selected*="yes"]');
+   let disabled = $('[data-selected*="no"]')
+   disabled.css('pointer-events', '');
+   enabled.css('pointer-events', 'none');
+   var chosen = enabled.attr('class');
+}
 (function() {
   const username = mw.config.get('wgUserName');
   function page(title) {
