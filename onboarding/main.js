@@ -27,14 +27,14 @@ var readerWriterDOM = `
 <div class="chose">
   <div class="section">
     <a class="writer">
-      <span class="wds-button">
+      <span class="wds-button" style="padding:40px;">
          <h2>I'm a writer</h2>
          <p></p>
       </span>
     </a>
   <div class="section">
     <a class="reader">
-      <span class="wds-button">
+      <span class="wds-button" style="padding:40px;">
          <h2>I'm a reader</h2>
          <p></p>
       </span>
