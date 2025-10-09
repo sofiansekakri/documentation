@@ -42,7 +42,7 @@ var readerWriterDOM = `
   </div>
 </div>
 `;
-
+var chosen;
 function readerwriter(type)
 {
    if(type === 'writer')
@@ -59,7 +59,7 @@ function readerwriter(type)
    let disabled = $('[data-selected*="no"]')
    disabled.css('pointer-events', 'auto');
    enabled.css('pointer-events', 'none');
-   var chosen = enabled.attr('class');
+   chosen = enabled.attr('class');
 }
 (function() {
   const username = mw.config.get('wgUserName');
