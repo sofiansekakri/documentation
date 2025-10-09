@@ -47,11 +47,27 @@ function readerwriter(type)
 {
    if(type === 'writer')
    {
+      $('.page-reader').css({
+                'opacity': '0',
+                'pointer-events': 'none'
+              });
+      $('.page-writer').css({
+                'opacity': '1',
+                'pointer-events': 'auto'
+              });
       $('.reader').attr('data-selected', 'no');
       $('.writer').attr('data-selected', yes);
    }
    if(type === 'reader')
    {
+      $('.page-reader').css({
+                'opacity': '1',
+                'pointer-events': 'auto'
+              });
+      $('.page-writer').css({
+                'opacity': '0',
+                'pointer-events': 'none'
+              });
       $('.writer').attr('data-selected', 'no');
       $('.reader').attr('data-selected', 'yes');
    }
