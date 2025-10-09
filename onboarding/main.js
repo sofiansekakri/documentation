@@ -32,7 +32,7 @@ var readerWriterDOM = `
          <p></p>
       </span>
     </a>
-  <div class="chose">
+  <div class="section">
     <a class="reader">
       <span class="wds-button">
          <h2>I'm a reader</h2>
