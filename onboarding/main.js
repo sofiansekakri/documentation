@@ -23,6 +23,26 @@ window.onBoardingSettings = {
   ]
 };
 
+var readerWriterDOM = `
+<div class="chose">
+  <div class="section">
+    <a class="writer">
+      <span class="wds-button">
+         <h2>I'm a writer</h2>
+         <p></p>
+      </span>
+    </a>
+  <div class="chose">
+    <a class="reader">
+      <span class="wds-button">
+         <h2>I'm a reader</h2>
+         <p></p>
+      </span>
+    </a>
+  </div>
+</div>
+`;
+
 (function() {
   const username = mw.config.get('wgUserName');
   function page(title) {
