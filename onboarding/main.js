@@ -57,7 +57,7 @@ function readerwriter(type)
    }
    let enabled = $('[data-selected*="yes"]');
    let disabled = $('[data-selected*="no"]')
-   disabled.css('pointer-events', '');
+   disabled.css('pointer-events', 'auto');
    enabled.css('pointer-events', 'none');
    var chosen = enabled.attr('class');
 }
