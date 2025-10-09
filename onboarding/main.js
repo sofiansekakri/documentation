@@ -8,7 +8,7 @@ window.onBoardingSettings = {
   options: [
     {
       text: 'enable discussion page redirect',
-      checkedDefault: true,
+      checkedDefault: false,
       enableFunction: redirect,
       id: 'redirect'
     },
