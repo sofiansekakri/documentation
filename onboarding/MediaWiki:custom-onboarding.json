@@ -1,23 +1,23 @@
 {
-  header: 'Welcome, $1',
-  pages: [
-    'Backrooms_Wiki:Rules',
-    'MediaWiki:custom-choose',
-    'MediaWiki:custom-writer',
-    'MediaWiki:custom-reader'
+  "header": "Welcome, $1",
+  "pages": [
+    "Backrooms_Wiki:Rules",
+    "MediaWiki:custom-choose",
+    "MediaWiki:custom-writer",
+    "MediaWiki:custom-reader"
   ],
-  options: [
+  "options": [
     {
-      text: 'enable discussion page redirect',
-      checkedDefault: false,
-      enableFunction: redirect,
-      id: 'redirect'
+      "text": "enable discussion page redirect",
+      "checkedDefault": false,
+      "enableFunction": redirect,
+      "id": "redirect"
     },
     {
-      text: 'sandbox tab',
-      checkedDefault: false,
-      enableFunction: sandboxtab,
-      id: 'sandboxtab'
+      "text": "sandbox tab",
+      "checkedDefault": false,
+      "enableFunction": sandboxtab,
+      "id": "sandboxtab"
     }
   ]
 }
