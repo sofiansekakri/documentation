@@ -1,12 +1,4 @@
-/*
-[[Category:Internal]]
-
-Author => [[User:Crazybloy2]]  https://github.com/sofiansekakri
-
-Contributors => [[User:Liminialityyy]] | [[User:Pexy0]] | [[User:Cringeaccount123456789]]
-
-made for => backrooms.fandom.com/wiki/
-*/
+// === [[Category:Internal]] ===
 
 mw.loader.using('mediawiki.api').then(() => {
 
