@@ -50,8 +50,8 @@ function readerwriter(type) {
   const username = mw.config.get('wgUserName');
 
   function page(titlee) {
-    return new mw.Api().get({ action: 'raw', title: titlee }).then(data => data);
-  }
+  return $.get(mw.util.getUrl(titlee), { action: 'raw' });
+}
 
   function pageHTML(titlee) {
     return new mw.Api().get({
