@@ -1,5 +1,5 @@
 {
-  'header': 'Welcome, $1',
+  header: 'Welcome, $1',
   pages: [
     'Backrooms_Wiki:Rules',
     'MediaWiki:custom-choose',
