@@ -1,4 +1,6 @@
 /*
+[[Category:Internal]]
+
 Author => [[User:Crazybloy2]]  https://github.com/sofiansekakri
 
 Contributors => [[User:Liminialityyy]] | [[User:Pexy0]] | [[User:Cringeaccount123456789]]
