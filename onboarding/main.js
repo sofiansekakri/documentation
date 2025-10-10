@@ -143,4 +143,3 @@ importArticle({
         article: 'MediaWiki:custom-onboarding.css'
     });
 });
-});
