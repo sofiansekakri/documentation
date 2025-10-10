@@ -71,8 +71,8 @@ function readerwriter(type)
       $('.writer').attr('data-selected', 'no');
       $('.reader').attr('data-selected', 'yes');
    }
-   let enabled = $('[data-selected*="yes"]');
-   let disabled = $('[data-selected*="no"]')
+   let enabled = $('[data-selected="yes"]');
+   let disabled = $('[data-selected="no"]')
    disabled.css('pointer-events', 'auto');
    enabled.css('pointer-events', 'none');
    chosen = enabled.attr('class');
