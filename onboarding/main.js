@@ -139,8 +139,9 @@ function readerwriter(type) {
     });
   });
 })();
-
-
-
+importArticle({
+        type: 'style',
+        article: 'MediaWiki:Onboarding.css'
+    });
 });
 });
