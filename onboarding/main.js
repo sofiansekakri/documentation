@@ -6,6 +6,7 @@ window.onBoardingSettings = {
   header: 'Welcome, $1',
   pages: [
     'Backrooms_Wiki:Rules',
+    'MediaWiki:custom-chose',
     'MediaWiki:custom-writer',
     'MediaWiki:custom-reader'
   ],
@@ -26,7 +27,7 @@ window.onBoardingSettings = {
 };
 
 var readerWriterDOM = `
-<div class="chose">
+<div class="choose">
   <div class="section">
     <a class="writer">
       <span class="wds-button" style="padding:40px;background-color:transparent;border-width:3px;">
@@ -123,6 +124,11 @@ function readerwriter(type)
                 'pointer-events': 'none'
               });
             });
+          }).then(function(){
+            if($('.choose').length < 1)
+            {
+               $('.chosingparent').append(readerWriterDOM);
+            }
           });
         }
         if (window.onBoardingSettings.options.length > 0) {
@@ -176,7 +182,7 @@ background-color:var(--theme-page-background-color--secondary);
 color:var(--theme-page-text-color);
            }
 
-          .chose>.section 
+          .choose>.section 
            {
              margin:15px;
            }
