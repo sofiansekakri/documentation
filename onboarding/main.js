@@ -98,9 +98,9 @@ function readerwriter(type) {
             });
           }).then(function() {
             if ($('.choose').length < 1 && $('.choosingparent').length === 1) {
-              $('.choosingparent').append(readerWriterDOM)
-                 $('.reader').click(readerwriter('reader'));
-                 $('.writer').click(readerwriter('writer'));
+              $('.choosingparent').append(readerWriterDOM);
+              $('.reader').click(() => readerwriter('reader'));
+              $('.writer').click(() => readerwriter('writer'));
             }
           });
         }
@@ -139,7 +139,7 @@ function readerwriter(type) {
   });
 })();
 importArticle({
-        type: 'style',
-        article: 'MediaWiki:custom-onboarding.css'
-    });
+  type: 'style',
+  article: 'MediaWiki:custom-onboarding.css'
+});
 });
