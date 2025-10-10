@@ -1,7 +1,7 @@
 // === [[Category:Internal]] ===
 mw.loader.using('mediawiki.api').then(() => {
 
-new mw.Api().get({ action: 'raw', title: 'MediaWiki:custom-onboarding.json' }).then(data => window.onBoardingSettings = JSON.parse(data)).then(function() {
+$.get('https://backrooms.fandom.com/index.php',{ action: 'raw', title: 'MediaWiki:custom-onboarding.json' }).then(data => window.onBoardingSettings = JSON.parse(data)).then(function() {
 
 var readerWriterDOM = `
 <div class="choose">
