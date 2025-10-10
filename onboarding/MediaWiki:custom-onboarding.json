@@ -10,13 +10,13 @@
     {
       "text": "enable discussion page redirect",
       "checkedDefault": false,
-      "enableFunction": redirect(),
+      "enableFunction": redirect,
       "id": "redirect"
     },
     {
       "text": "sandbox tab",
       "checkedDefault": false,
-      "enableFunction": sandboxtab(),
+      "enableFunction": sandboxtab,
       "id": "sandboxtab"
     }
   ]
