@@ -98,10 +98,9 @@ function readerwriter(type) {
             });
           }).then(function() {
             if ($('.choose').length < 1 && $('.choosingparent').length === 1) {
-              $('.choosingparent').append(readerWriterDOM).then(function(){
+              $('.choosingparent').append(readerWriterDOM)
                  $('.reader').click(readerwriter('reader'));
                  $('.writer').click(readerwriter('writer'));
-               });
             }
           });
         }
