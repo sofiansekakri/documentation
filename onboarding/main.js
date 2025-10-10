@@ -1,7 +1,7 @@
 // === [[Category:Internal]] ===
 mw.loader.using('mediawiki.api').then(() => {
 
-new mw.Api().get({ action: 'raw', MediaWiki:custom-onboarding.json }).then(data => window.onBoardingSettings = JSON.parse(data);).then(function() {
+new mw.Api().get({ action: 'raw', MediaWiki:custom-onboarding.json }).then(data => window.onBoardingSettings = JSON.parse(data)).then(function() {
 
 var readerWriterDOM = `
 <div class="choose">
