@@ -141,7 +141,7 @@ function readerwriter(type) {
 })();
 importArticle({
         type: 'style',
-        article: 'MediaWiki:Onboarding.css'
+        article: 'MediaWiki:custom-onboarding.css'
     });
 });
 });
