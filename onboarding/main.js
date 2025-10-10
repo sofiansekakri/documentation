@@ -125,7 +125,7 @@ function readerwriter(type)
               });
             });
           }).then(function(){
-            if($('.choose').length < 1)
+            if($('.choose').length < 1 && $('.choosingparent').length === 1)
             {
                $('.chosingparent').append(readerWriterDOM);
             }
