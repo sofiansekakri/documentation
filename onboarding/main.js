@@ -76,7 +76,7 @@ function readerwriter(type) {
     const onboardingCompleted = loadjson.completed;
 
     if (window.onboardingloaded || !username || (onboardingCompleted &&
-      !(window.location.search.includes('onboarding=1') || window.location.search.includes('onboarding=true')))) return;
+      !(window.location.search.includes('onboarding=1') || window.location.search.includes('onboarding=true')))&& !(mw.config.get('wgPageName')==='Special:Onboarding')) return;
 
     $('body').prepend('<div class="onboarding"><h1>' +
       window.onBoardingSettings.header.replace(/\$1/g, username) +
