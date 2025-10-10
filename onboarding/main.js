@@ -1,5 +1,4 @@
 // === [[Category:Internal]] ===
-
 mw.loader.using('mediawiki.api').then(() => {
 
 window.onBoardingSettings = {
@@ -35,6 +34,7 @@ var readerWriterDOM = `
          <p></p>
       </span>
     </a>
+  </div>
   <div class="section">
     <a class="reader">
       <span class="wds-button" style="padding:40px;background-color:transparent;border-width:3px;">
@@ -45,46 +45,36 @@ var readerWriterDOM = `
   </div>
 </div>
 `;
+
 var chosen;
-function readerwriter(type)
-{
-   if(type === 'writer')
-   {
-      $('.page-reader').css({
-                'opacity': '0',
-                'pointer-events': 'none'
-              });
-      $('.page-writer').css({
-                'opacity': '1',
-                'pointer-events': 'auto'
-              });
-      $('.reader').attr('data-selected', 'no');
-      $('.writer').attr('data-selected', yes);
-   }
-   if(type === 'reader')
-   {
-      $('.page-reader').css({
-                'opacity': '1',
-                'pointer-events': 'auto'
-              });
-      $('.page-writer').css({
-                'opacity': '0',
-                'pointer-events': 'none'
-              });
-      $('.writer').attr('data-selected', 'no');
-      $('.reader').attr('data-selected', 'yes');
-   }
-   let enabled = $('[data-selected="yes"]');
-   let disabled = $('[data-selected="no"]')
-   disabled.css('pointer-events', 'auto');
-   enabled.css('pointer-events', 'none');
-   chosen = enabled.attr('class');
+
+function readerwriter(type) {
+  if (type === 'writer') {
+    $('.page-reader').css({ 'opacity': '0', 'pointer-events': 'none' });
+    $('.page-writer').css({ 'opacity': '1', 'pointer-events': 'auto' });
+    $('.reader').attr('data-selected', 'no');
+    $('.writer').attr('data-selected', 'yes');
+  }
+  if (type === 'reader') {
+    $('.page-reader').css({ 'opacity': '1', 'pointer-events': 'auto' });
+    $('.page-writer').css({ 'opacity': '0', 'pointer-events': 'none' });
+    $('.writer').attr('data-selected', 'no');
+    $('.reader').attr('data-selected', 'yes');
+  }
+  let enabled = $('[data-selected="yes"]');
+  let disabled = $('[data-selected="no"]');
+  disabled.css('pointer-events', 'auto');
+  enabled.css('pointer-events', 'none');
+  chosen = enabled.attr('class');
 }
+
 (function() {
   const username = mw.config.get('wgUserName');
+
   function page(title) {
     return new mw.Api().get({ action: 'raw', title }).then(data => data);
   }
+
   function pageHTML(title) {
     return new mw.Api().get({
       action: 'parse',
@@ -93,6 +83,7 @@ function readerwriter(type)
       formatversion: 2
     }).then(data => data.error ? null : data.parse.text);
   }
+
   function edit(title, content) {
     return new mw.Api().postWithToken('csrf', {
       action: 'edit',
@@ -101,36 +92,39 @@ function readerwriter(type)
       summary: ''
     });
   }
+
   page('User:' + username + '/onboarding.json').then(json => {
     let loadjson = json ? JSON.parse(json) : { completed: false, options: [] };
     const onboardingCompleted = loadjson.completed;
+
     if (window.onboardingloaded || !username || (onboardingCompleted &&
       !(window.location.search.includes('onboarding=1') || window.location.search.includes('onboarding=true')))) return;
+
     $('body').prepend('<div class="onboarding"><h1>' +
       window.onBoardingSettings.header.replace(/\$1/g, username) +
       '</h1></div>');
+
     page('MediaWiki:Mainpage').then(text => {
       const mainPage = text.replace(/ /g, '_');
       pageHTML(mainPage + '/onboarding').then(pageContent => {
         if (!pageContent) return;
+
         $('.onboarding').append(pageContent);
+
         for (let i = 0; i < window.onBoardingSettings.pages.length; i++) {
           pageHTML(window.onBoardingSettings.pages[i]).then(pageContent => {
             if (!pageContent) return;
             $('.onboarding').append('<div id="' + window.onBoardingSettings.pages[i] + '" style="position:absolute;z-index:' + (225 - i) + ';">' + pageContent + '<br><a class="' + window.onBoardingSettings.pages[i] + ' wds-button">Next</a></div>');
             $('.' + window.onBoardingSettings.pages[i]).click(function() {
-              $('#' + window.onBoardingSettings.pages[i]).css({
-                'opacity': '0',
-                'pointer-events': 'none'
-              });
+              $('#' + window.onBoardingSettings.pages[i]).css({ 'opacity': '0', 'pointer-events': 'none' });
             });
-          }).then(function(){
-            if($('.choose').length < 1 && $('.choosingparent').length === 1)
-            {
-               $('.chosingparent').append(readerWriterDOM);
+          }).then(function() {
+            if ($('.choose').length < 1 && $('.choosingparent').length === 1) {
+              $('.choosingparent').append(readerWriterDOM);
             }
           });
         }
+
         if (window.onBoardingSettings.options.length > 0) {
           $('.onboarding').append('<div class="options"><h2>Options</h2></div>');
           window.onBoardingSettings.options.forEach(opt => {
@@ -145,6 +139,7 @@ function readerwriter(type)
             }
           });
         }
+
         function submit() {
           const obj = { completed: true, options: [] };
           $('.options input').each((i, el) => {
@@ -152,11 +147,13 @@ function readerwriter(type)
           });
           return edit('User:' + username + '/onboarding.json', JSON.stringify(obj));
         }
+
         $('.onboarding').append('<a class="wds-button onboardingbutton">Save</a>');
         $('.onboardingbutton').click(function(event) {
           event.preventDefault();
           submit().then(() => $('.onboarding').remove());
         });
+
         $('body').append(`
           <style>
             .onboarding {
@@ -173,21 +170,18 @@ function readerwriter(type)
               overflow-y: scroll;
               overflow-x: hidden;
             }
-
-           [data-selected="yes"]
-           {
-              border-color:var(--theme-page-link-color);
-border-width:3px;
-background-color:var(--theme-page-background-color--secondary);
-color:var(--theme-page-text-color);
-           }
-
-          .choose>.section 
-           {
-             margin:15px;
-           }
+            [data-selected="yes"] {
+              border-color: var(--theme-page-link-color);
+              border-width: 3px;
+              background-color: var(--theme-page-background-color--secondary);
+              color: var(--theme-page-text-color);
+            }
+            .choose>.section {
+              margin: 15px;
+            }
           </style>
         `);
+
         window.onboardingloaded = true;
       });
     });
