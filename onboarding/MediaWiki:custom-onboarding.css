@@ -1,1 +1,23 @@
- 
+ .onboarding {
+              z-index: 201;
+              position: sticky;
+              left: 10px;
+              top: 10px;
+              width: 95vw;
+              height: 95vh;
+              max-height: 95vh;
+              background-color: var(--theme-page-background-color);
+              color: var(--theme-page-text-color);
+              padding: 3%;
+              overflow-y: scroll;
+              overflow-x: hidden;
+            }
+            [data-selected="yes"] {
+              border-color: var(--theme-page-link-color);
+              border-width: 3px;
+              background-color: var(--theme-page-background-color--secondary);
+              color: var(--theme-page-text-color);
+            }
+            .choose>.section {
+              margin: 15px;
+            }
