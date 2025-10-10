@@ -1,3 +1,9 @@
+/*
+Author => [[User:Crazybloy2]]  https://github.com/sofiansekakri
+
+made for => backrooms.fandom.com/wiki/
+*/
+
 mw.loader.using('mediawiki.api').then(() => {
 
 window.onBoardingSettings = {
