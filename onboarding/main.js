@@ -5,7 +5,7 @@ window.onBoardingSettings = {
   header: 'Welcome, $1',
   pages: [
     'Backrooms_Wiki:Rules',
-    'MediaWiki:custom-chose',
+    'MediaWiki:custom-choose',
     'MediaWiki:custom-writer',
     'MediaWiki:custom-reader'
   ],
