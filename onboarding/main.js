@@ -1,7 +1,7 @@
 // === [[Category:Internal]] ===
 mw.loader.using('mediawiki.api').then(() => {
 
-new mw.Api().get({ action: 'raw', MediaWiki:custom-onboarding.json }).then(data => window.onBoardingSettings = JSON.parse(data)).then(function() {
+new mw.Api().get({ action: 'raw', title: 'MediaWiki:custom-onboarding.json' }).then(data => window.onBoardingSettings = JSON.parse(data)).then(function() {
 
 var readerWriterDOM = `
 <div class="choose">
@@ -49,23 +49,23 @@ function readerwriter(type) {
 (function() {
   const username = mw.config.get('wgUserName');
 
-  function page(title) {
-    return new mw.Api().get({ action: 'raw', title }).then(data => data);
+  function page(titlee) {
+    return new mw.Api().get({ action: 'raw', title: titlee }).then(data => data);
   }
 
-  function pageHTML(title) {
+  function pageHTML(titlee) {
     return new mw.Api().get({
       action: 'parse',
-      page: title,
+      page: titlee,
       prop: 'text',
       formatversion: 2
     }).then(data => data.error ? null : data.parse.text);
   }
 
-  function edit(title, content) {
+  function edit(titlee, content) {
     return new mw.Api().postWithToken('csrf', {
       action: 'edit',
-      title,
+      title: titlee,
       text: content,
       summary: ''
     });
