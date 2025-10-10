@@ -173,6 +173,11 @@ border-width:3px;
 background-color:var(--theme-page-background-color--secondary);
 color:var(--theme-page-text-color);
            }
+
+          .chose>.section 
+           {
+             margin:15px;
+           }
           </style>
         `);
         window.onboardingloaded = true;
