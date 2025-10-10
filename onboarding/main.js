@@ -171,7 +171,7 @@ function readerwriter(type)
               border-color:var(--theme-page-link-color);
 border-width:3px;
 background-color:var(--theme-page-background-color--secondary);
-color:var(--theme-page-text-color)
+color:var(--theme-page-text-color);
            }
           </style>
         `);
