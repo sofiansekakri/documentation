@@ -1,29 +1,7 @@
 // === [[Category:Internal]] ===
 mw.loader.using('mediawiki.api').then(() => {
 
-window.onBoardingSettings = {
-  header: 'Welcome, $1',
-  pages: [
-    'Backrooms_Wiki:Rules',
-    'MediaWiki:custom-choose',
-    'MediaWiki:custom-writer',
-    'MediaWiki:custom-reader'
-  ],
-  options: [
-    {
-      text: 'enable discussion page redirect',
-      checkedDefault: false,
-      enableFunction: redirect,
-      id: 'redirect'
-    },
-    {
-      text: 'sandbox tab',
-      checkedDefault: false,
-      enableFunction: sandboxtab,
-      id: 'sandboxtab'
-    }
-  ]
-};
+new mw.Api().get({ action: 'raw', MediaWiki:custom-onboarding.json }).then(data => window.onBoardingSettings = JSON.parse(data);).then(function() {
 
 var readerWriterDOM = `
 <div class="choose">
@@ -190,5 +168,5 @@ function readerwriter(type) {
     });
   });
 })();
-
+});
 });
