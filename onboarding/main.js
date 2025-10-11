@@ -115,8 +115,9 @@ function readerwriter(type) {
             }
             $('#' + opt.id + ' > .label').text(opt.text);
             if (loadjson.options.includes(opt.id)) {
-              opt.enableFunction();
-            }
+  const fn = window[opt.enableFunction];
+  if (typeof fn === 'function') fn();
+}
           });
         }
 
