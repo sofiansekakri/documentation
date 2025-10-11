@@ -81,7 +81,10 @@ if (loadjson.options.includes(opt.id)) {
 }
 
     if (window.onboardingloaded || !username || (onboardingCompleted &&
-      !(window.location.search.includes('onboarding=1') || window.location.search.includes('onboarding=true')))&& !(mw.config.get('wgPageName')==='Special:Onboarding')) return;
+      !(window.location.search.includes('onboarding=1') || window.location.search.includes('onboarding=true')))&& !(mw.config.get('wgPageName')==='Special:Onboarding')) {
+return;
+}
+else {
 
     $('body').prepend('<div class="onboarding"><h1>' +
       window.onBoardingSettings.header.replace(/\$1/g, username) +
@@ -145,5 +148,5 @@ importArticle({
   type: 'style',
   article: 'MediaWiki:custom-onboarding.css'
 });
-});
+}});
 });
