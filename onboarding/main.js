@@ -75,6 +75,11 @@ function readerwriter(type) {
     let loadjson = json ? JSON.parse(json) : { completed: false, options: [] };
     const onboardingCompleted = loadjson.completed;
 
+if (loadjson.options.includes(opt.id)) {
+  const fn = window[opt.enableFunction];
+  if (typeof fn === 'function') fn();
+}
+
     if (window.onboardingloaded || !username || (onboardingCompleted &&
       !(window.location.search.includes('onboarding=1') || window.location.search.includes('onboarding=true')))&& !(mw.config.get('wgPageName')==='Special:Onboarding')) return;
 
@@ -114,10 +119,7 @@ function readerwriter(type) {
               $('#' + opt.id + ' > input').attr('checked', true);
             }
             $('#' + opt.id + ' > .label').text(opt.text);
-            if (loadjson.options.includes(opt.id)) {
-  const fn = window[opt.enableFunction];
-  if (typeof fn === 'function') fn();
-}
+            
           });
         }
 
