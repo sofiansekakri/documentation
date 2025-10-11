@@ -143,10 +143,10 @@ else {
       });
     });
   });
-})();
+}})();
 importArticle({
   type: 'style',
   article: 'MediaWiki:custom-onboarding.css'
 });
-}});
+});
 });
