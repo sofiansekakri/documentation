@@ -142,8 +142,8 @@ else {
         window.onboardingloaded = true;
       });
     });
-  });
-}})();
+  }});
+})();
 importArticle({
   type: 'style',
   article: 'MediaWiki:custom-onboarding.css'
