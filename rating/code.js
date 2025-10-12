@@ -15,6 +15,7 @@ mw.loader.using('mediawiki.api').then(() => {
   }
   function getpageratings {
     fetchpage("MediaWiki:custom-ratingstorage.json").then(ratings => {
+      let userupvoted, userdownvoted;
       for(let i = 0; ratings.users.length; i++) 
       {
           if (rating.users[i].username === mw.config.get('wgUserName'))
