@@ -6,7 +6,7 @@ const api = "https://backrooms.fandom.com/api.php";
 function edit(title, content) {
     .postWithToken('csrf', {
       action: 'edit',
-      title: titlee,
+      title: title,
       text: content,
       summary: ''
     });
