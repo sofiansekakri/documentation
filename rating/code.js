@@ -17,7 +17,10 @@ mw.loader.using('mediawiki.api').then(() => {
     fetchpage("MediaWiki:custom-ratingstorage.json").then(ratings => {
       for(let i = 0; ratings.users.length; i++) 
       {
-          if (rating.users[i].username === mw.config.get('wgUserName')) 
+          if (rating.users[i].username === mw.config.get('wgUserName'))
+          {
+            
+          }
       }
     });
 });
