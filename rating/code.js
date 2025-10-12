@@ -14,7 +14,7 @@ mw.loader.using('mediawiki.api').then(() => {
       
   }
   function getpageratings {
-    fetchpage("MediaWiki:custom-ratingstorage.json").then(ratings => {
+    fetchpage("MediaWiki:custom-ratingstorage.json").then(rating => {
       let userupvoted, userdownvoted;
       for(let i = 0; rating.users.length; i++) 
       {
