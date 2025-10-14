@@ -6,7 +6,6 @@ $.get(mw.util.getUrl('MediaWiki:custom-onboarding.json'), { action: 'raw' }).the
     window.onBoardingSettings = JSON.parse(data);
   } catch (e) {
     window.onBoardingSettings = { pages: [], options: [], header: '' };
-    /* If parsing fails, continue with empty/default settings */
   }
 }).then(function() {
 
