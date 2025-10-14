@@ -1,0 +1,69 @@
+[
+    {
+        "General URL": "https://_WIKINAME_.fandom.com/wikia.php?controller=_CONTROLLER_\u0026method=_METHOD_\u0026_OTHER_PARAMETERS_"
+    },
+    {
+        "controller": "DiscussionContribution",
+        "method": "getPosts",
+        "userId": {
+            "required": true
+        },
+        "containerType": [
+            "ARTICLE_COMMENT",
+            "FORUM",
+            "WALL",
+            {
+                "default": "FORUM"
+            }
+        ],
+        "page": {
+            "default": "0"
+        },
+        "limit": {
+            "default": "10"
+        }
+    },
+    {
+        "controller": "DiscussionThread",
+        "method": "getThread",
+        "threadId": {
+            "required": true
+        },
+        "responseGroup": [
+            "full",
+            "small",
+            {
+                "default": "small"
+            }
+        ],
+        "limit": {
+            "description": "?",
+            "default": "10"
+        }
+    },
+    {
+        "controller": "DiscussionPoll",
+        "method": "getVoters",
+        "pollId": {
+            "description": "Poll ID, \ncan be obtained via DiscussionThread/getThread['poll']['id']",
+            "required": true
+        },
+        "answerId": {
+            "description": "Answer ID, \ncan be obtained via DiscussionThread/getThread['poll']['answers'][n]['id']\n\nIf given, will list the voters for that answer.\nIf not given, will list all voters for that poll.",
+            "required": false
+        }
+    },
+    {
+        "controller": "DiscussionPoll",
+        "method": "castVote",
+        "TYPE": "POST",
+        "pollId": {
+            "description": "Poll ID, \ncan be obtained via DiscussionThread/getThread['poll']['id']",
+            "required": true
+        },
+        "answerIds": {
+            "description": "Answer ID (a single one despite the name of the parameter), \ncan be obtained via DiscussionThread/getThread['poll']['answers'][n]['id']\n\nChanging vote is possible.\nAn invalid or empty ID will remove the vote from any particular answer but will still keep the user in the overall list of voters.",
+            "required": true
+        }
+    }
+]

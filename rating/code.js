@@ -5,7 +5,7 @@ mw.loader.using('mediawiki.api').then(() => {
   function edit(content) {
     return new mw.Api().postWithToken('csrf', {
       action: 'edit',
-      'User:'+mw.config.get('wgUserName')+'/pageratings.json',
+      title:'User:' + mw.config.get('wgUserName') + '/pageratings.json',
       text: content,
       summary: ''
     });
@@ -13,7 +13,7 @@ mw.loader.using('mediawiki.api').then(() => {
   function fetchpage() {
       
   }
-  function getpageratings {
+  function getpageratings() {
     fetchpage("MediaWiki:custom-ratingstorage.json").then(rating => {
       let userupvoted, userdownvoted;
       for(let i = 0; rating.users.length; i++) 
@@ -23,5 +23,7 @@ mw.loader.using('mediawiki.api').then(() => {
             
           }
       }
-    });
+   });
+  }
 });
+
