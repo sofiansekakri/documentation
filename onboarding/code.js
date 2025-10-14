@@ -137,7 +137,13 @@ else {
         $('.onboarding').append('<a class="wds-button onboardingbutton">Save</a>');
         $('.onboardingbutton').click(function(event) {
           event.preventDefault();
-          submit().then(() => $('.onboarding').remove());
+          submit().then(res => {
+            if(!res.error) {
+              $('.onboarding').remove();
+            } else 
+            {$('.onboarding').append('<center><br><span style="color:red;">An error occurred.</span></center>');}
+          });
+            
         });
         window.onboardingloaded = true;
       });
