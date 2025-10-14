@@ -1,7 +1,14 @@
 // === [[Category:Internal]] ===
 mw.loader.using('mediawiki.api').then(() => {
 
-$.get(mw.util.getUrl('MediaWiki:custom-onboarding.json'), { action: 'raw' }).then(data => window.onBoardingSettings = JSON.parse(data)).then(function() {
+$.get(mw.util.getUrl('MediaWiki:custom-onboarding.json'), { action: 'raw' }).then(data => {
+  try {
+    window.onBoardingSettings = JSON.parse(data);
+  } catch (e) {
+    window.onBoardingSettings = { pages: [], options: [], header: '' };
+    /* If parsing fails, continue with empty/default settings */
+  }
+}).then(function() {
 
 var readerWriterDOM = `
 <div class="choose">
@@ -72,13 +79,26 @@ function readerwriter(type) {
   }
 
   page('User:' + username + '/onboarding.json').then(json => {
-    let loadjson = json ? JSON.parse(json) : { completed: false, options: [] };
+    let loadjson;
+    try {
+      loadjson = json ? JSON.parse(json) : { completed: false, options: [] };
+    } catch (e) {
+      loadjson = { completed: false, options: [] };
+    }
     const onboardingCompleted = loadjson.completed;
 
-if (loadjson.options.includes(opt.id)) {
-  const fn = window[opt.enableFunction];
-  if (typeof fn === 'function') fn();
-}
+    if (window.onBoardingSettings && Array.isArray(window.onBoardingSettings.options)) {
+      window.onBoardingSettings.options.forEach(opt => {
+        try {
+          if (loadjson.options && loadjson.options.includes(opt.id) && opt.enableFunction) {
+            const fn = window[opt.enableFunction];
+            if (typeof fn === 'function') fn();
+          }
+        } catch (e) {
+          return;
+        }
+      });
+    }
 
     if (window.onboardingloaded || !username || (onboardingCompleted &&
       !(window.location.search.includes('onboarding=1') || window.location.search.includes('onboarding=true')))&& !(mw.config.get('wgPageName')==='Special:Onboarding')) {
