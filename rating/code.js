@@ -10,17 +10,19 @@ mw.loader.using('mediawiki.api').then(() => {
       summary: ''
     });
   }
-  function fetchpage() {
-      
+  function fetchpage(titlee) {
+      return $.get(mw.util.getUrl(titlee), { action: 'raw' });
   }
   function getpageratings() {
     fetchpage("MediaWiki:custom-ratingstorage.json").then(rating => {
-      let userupvoted, userdownvoted;
+      let userupvoted, userdownvoted = false;
       for(let i = 0; rating.users.length; i++) 
       {
-          if (rating.users[i].username === mw.config.get('wgUserName')&&(rating.users[i].up.includes(page)||rating.users[i].down.includes(page)))
+          if (rating.users[i].username === mw.config.get('wgUserName'))
           {
-            
+            userdownvoted = rating.users[i].down.includes(page);
+            userupvoted = rating.users[i].up.includes(page);
+            break;
           }
       }
    });
