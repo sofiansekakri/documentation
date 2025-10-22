@@ -1,23 +1,91 @@
  .onboarding {
+
               z-index: 201;
+
               position: sticky;
+
               left: 10px;
+
               top: 10px;
-              width: 95vw;
-              height: 95vh;
-              max-height: 95vh;
+
+              width: 100vw;
+
+              height: 100vh;
+
+              max-height: 100vh;
+
               background-color: var(--theme-page-background-color);
+
               color: var(--theme-page-text-color);
-              padding: 3%;
+
+              padding: 10%;
+
               overflow-y: scroll;
+
               overflow-x: hidden;
-            }
+
+             }
+
+            
+
             [data-selected="yes"] {
+
               border-color: var(--theme-page-link-color);
+
               border-width: 3px;
+
               background-color: var(--theme-page-background-color--secondary);
+
               color: var(--theme-page-text-color);
+
+              cursor:default;
+
             }
+
+            [data-selected="yes"] {
+
+              cursor:pointer;
+
+            }
+
+            
+
             .choose>.section {
+
               margin: 15px;
+
             }
+
+            
+
+            #cont {
+
+            	position:relative;
+
+            	margin:5%;
+
+            }
+
+
+
+             .onboardingbutton {
+
+             	margin-top:400px;
+
+             }
+
+			[id*="choosingparent"] {
+
+				width:90vw;
+
+				height:100vh;
+
+			}
+
+			.choose {
+
+				display: flex;
+
+				flex-direction: column;
+
+			}
