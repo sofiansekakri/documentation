@@ -4,7 +4,7 @@ mw.loader.using(['mediawiki.api', 'mediawiki.util']).then(() => {
 
 
 
-$.get('https://backrooms-freewriting.fandom.com/index.php?title=User:Crazybloy2/custom-onboarding.json', { action: 'raw' }).then(data => {
+$.get('https://backrooms-freewriting.fandom.com/index.php?title=MediaWiki:Custom-onboarding.json', { action: 'raw' }).then(data => {
 
   try {
 
@@ -26,9 +26,9 @@ var readerWriterDOM = `
 
   <div class="section">
 
-    <a class="writer">
+    <a class="writer wds-button" style="padding:40px;background-color:transparent;border-width:3px;">
 
-      <span class="wds-button" style="padding:40px;background-color:transparent;border-width:3px;">
+      <span>
 
          <h2>I'm a writer</h2>
 
@@ -42,9 +42,9 @@ var readerWriterDOM = `
 
   <div class="section">
 
-    <a class="reader">
+    <a class="reader wds-button" style="padding:40px;background-color:transparent;border-width:3px;">
 
-      <span class="wds-button" style="padding:40px;background-color:transparent;border-width:3px;">
+      <span>
 
          <h2>I'm a reader</h2>
 
@@ -250,7 +250,11 @@ else {
 
 
 
-    $('body').prepend('<div class="onboarding"><div id="cont"><center><h1></h1></center></div></div>');
+    $('body').prepend(`<div class="onboarding">
+
+    <style>body {overflow-y:hidden;}</style>
+
+    <div id="cont"><center><h1></h1></center></div></div>`);
 
     $('.onboarding h1').text(window.onBoardingSettings.header.replace(/\$1/g, username));
 
