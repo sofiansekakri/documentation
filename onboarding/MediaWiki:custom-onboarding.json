@@ -1,23 +1,8 @@
 {
-  "header": "Welcome, $1",
-  "pages": [
-    "Backrooms_Wiki:Rules",
-    "MediaWiki:custom-choose",
-    "MediaWiki:custom-writer",
-    "MediaWiki:custom-reader"
-  ],
-  "options": [
-    {
-      "text": "enable discussion page redirect",
-      "checkedDefault": false,
-      "enableFunction": "redirect",
-      "id": "redirect"
-    },
-    {
-      "text": "sandbox tab",
-      "checkedDefault": false,
-      "enableFunction": "sandboxtab",
-      "id": "sandboxtab"
-    }
-  ]
+"header": "Welcome, $1",
+"pages": [
+"Backrooms_Freewriting_Wiki",
+"User:Crazybloy2/choosingparent"
+],
+"options": [ ]
 }
